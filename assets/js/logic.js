@@ -12,3 +12,16 @@ var endQuizScreen = document.querySelector("#end-screen");
 var initialsInputEl = document.querySelector("#initials");
 var submitBtn = document.querySelector("#submit");
 var questionsIndex = 0
+
+// When user clicks the start quiz button the start screen hides
+function startQuiz(){
+    hideStartScreen();
+    startTimer();
+    showQuiz();
+}
+startQuizBtn.addEventListener("click", startQuiz);
+
+function hideStartScreen(){
+    var startScreenDiv = document.querySelector("#start-screen");
+    startScreenDiv.classList.add("hide");
+}
