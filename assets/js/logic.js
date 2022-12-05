@@ -25,3 +25,18 @@ function hideStartScreen(){
     var startScreenDiv = document.querySelector("#start-screen");
     startScreenDiv.classList.add("hide");
 }
+
+// Timer count down
+function startTimer(){
+    var timerEl = document.querySelector("#time");
+    var timer = setInterval(function(){
+        if (quizDuration >= 0){
+            timerEl.textContent = quizDuration
+            quizDuration -= (TIMER_PERIOD / 1000);
+        } else {
+            clearInterval(timer);
+            timerEl.textContent = ""
+            stopQuiz();
+        }
+    }, TIMER_PERIOD)
+}
