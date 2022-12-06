@@ -1,6 +1,6 @@
 // Logic file
 // Declaring of global variables
-
+const NUM_QUESTIONS = questions.length
 const TRANSITION_DELAY = 500 // msec
 const TIMER_PERIOD = 1000 // msec
 const PENALTY = 10 // sec
@@ -12,6 +12,8 @@ var endQuizScreen = document.querySelector("#end-screen");
 var initialsInputEl = document.querySelector("#initials");
 var submitBtn = document.querySelector("#submit");
 var questionsIndex = 0
+
+
 
 // Call all the functions required to start the quiz
 function startQuiz(){
@@ -56,6 +58,8 @@ function showQuestionsScreen(){
     questionsScreen.classList.remove("hide");
 }
 
+
+
 // Calls functions that hide the questions and show the end of quiz page
 function stopQuiz(){
     hideQuestionsScreen()
@@ -84,6 +88,11 @@ function showQuestionAndChoices(questionIndex){
 function showQuestion(question) {
     var questionTitle = document.querySelector("#question-title");
     questionTitle.textContent = question.title 
+}
+
+// Displays the next question
+function getNextQuestion(index){
+    return questions[index]
 }
 
 function showChoices(choices, answer){
