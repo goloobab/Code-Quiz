@@ -1,26 +1,28 @@
 # Code-Quiz
-# Password-Generator
 
 ## Description 
 
-This project is aa password generator written and developed using Javascript. The user of this application will be prompted to enter the length on the password they wish between 10 - 64 characters. This will be followed witha series of options to choose from for example 'Do you need the password to have capital letters ?'. The choices from the users input will be saved and a will password generated / displayed inline with the options selected.  This is part of my learning journey  towards web development.
+This project is a Code Quiz written and developed using Javascript Vanilla API. The user / player of this quiz/application will be presented with a start page witha start button. When the Start Quiz button is pressed the questions will start to display on the screen and the 60 seconds timer will starta  count down. A correct answer earns you a mark while a wron one deducts 10 second from the count down. The quiz ends when the time is up or when all the question are completed. Different players take this quiz and their different scores will be recorded together with their initials.  This is part of my learning journey  towards web development.
 
 ## Task
-Generate a password when the button is clicked.
+Creating a Code Quiz with different questions and store the scores in the local storage.
 
-Present a series of prompts for password criteria:
+Acceptance Criteria:
 
-* Length of password:
-* At least 10 characters but no more than 64.
-* Character types:
-* Lowercase
-* Uppercase
-* Numeric
-* Special characters ($@%&*, etc.)
+* GIVEN I am taking a code quiz
+* WHEN I click the start button
+* THEN a timer starts and I am presented with a question
+* WHEN I answer a question
+* THEN I am presented with another question
+* WHEN I answer a question incorrectly
+* THEN time is subtracted from the clock
+* WHEN all questions are answered or the timer reaches 0
+* THEN the game is over
+* WHEN the game is over
+* THEN I can save my initials and score
 
-Code should validate for each input and at least one character type should be selected.
 
-Once all prompts are answered, the password should be generated and displayed in an alert or written to the page.
+Once all questions are answered the scores are displayed and store.
 
 ## Challenges
 
