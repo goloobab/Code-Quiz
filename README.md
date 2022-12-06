@@ -40,7 +40,7 @@ Once all questions are answered the scores are displayed and store.
 
 
 ## Screen Shots
-![goloobab-github-io-Password-Generator-2022-11-29-14_42_31](https://user-images.githubusercontent.com/26630637/204559533-d4a0a5d4-91a3-4485-bbae-f0b78c3ee60b.png)
+![Code-Quiz-index-html-2022-12-06-22_33_13](https://user-images.githubusercontent.com/26630637/206038539-f4c204c7-e399-4682-93f1-6061d7548a75.png)
 
 ## Links
 Deployed project: https://goloobab.github.io/Password-Generator/
