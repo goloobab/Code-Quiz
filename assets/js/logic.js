@@ -13,7 +13,8 @@ var initialsInputEl = document.querySelector("#initials");
 var submitBtn = document.querySelector("#submit");
 var questionsIndex = 0
 
-
+var correctAudio = new Audio("assets/sfx/correct.wav")
+var incorrectAudio = new Audio("assets/sfx/incorrect.wav")
 
 // Call all the functions required to start the quiz
 function startQuiz(){
