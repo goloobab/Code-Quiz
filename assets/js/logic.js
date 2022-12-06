@@ -97,3 +97,127 @@ function clearContainer(container) {
         container.removeChild(container.firstChild)
     }
 }
+
+
+function populateChoicesContainer(choicesContainer, choices, answer) {
+    // Generating a list of choices
+    for (let i = 0; i < choices.length; i++){
+        var choice = choices[i]
+        var choiceBtn = createChoiceButtonElement(choice, i, answer)
+        choicesContainer.appendChild(choiceBtn);
+    }
+}
+
+function createChoiceButtonElement(choice, index, answer){
+    var btn = document.createElement("button");
+    btn.setAttribute("value", choice);
+    btn.textContent = String(index + 1) + '. ' + choice
+    btn.addEventListener("click", function(event){
+        selectChoice(event, answer)
+    })
+
+    return btn
+}
+
+function selectChoice(event, answer){
+    var selectedChoice = event.target.value
+    var isAnswerCorrect = checkAnswer(selectedChoice, answer)
+    updateScore(isAnswerCorrect);
+    showFeedback(isAnswerCorrect);
+    playFeedbackAudio(isAnswerCorrect);
+    if (!isAnswerCorrect){
+        penalize()
+    }
+    showNext();
+}
+// Reducing the seconds by 10 sec
+function penalize(){
+    quizDuration -= PENALTY
+}
+// Showing the next question
+function showNext(){
+    questionsIndex++;
+
+    setTimeout(function(){
+        if (questionsIndex < NUM_QUESTIONS){
+            showQuestionAndChoices(questionsIndex)
+        } else{
+            stopQuiz();
+        }
+        hideFeedback();
+    }, TRANSITION_DELAY)
+}
+
+function checkAnswer(selectedChoice, correctChoice){
+    if (selectedChoice === correctChoice){
+        return true
+    } else {
+        return false
+    }
+}
+
+// feedback: output depends on the answer selected
+// the output can either be "Correct!" or "Wrong!"
+function showFeedback(isAnswerCorrect){
+    feedbackEl.classList.remove("hide");
+    if (isAnswerCorrect){
+        feedbackEl.textContent = "Correct!"
+        
+    }
+    else {
+        feedbackEl.textContent = "Wrong!"
+        
+    }
+}
+
+// Playing correct or incorrect Audio file
+function playFeedbackAudio(isAnswerCorrect){
+    if (isAnswerCorrect){
+        correctAudio.play()
+    }
+    else {
+        incorrectAudio.play()
+    }
+}
+
+function hideFeedback(){
+    feedbackEl.classList.add("hide");
+}
+
+// Adding the scores per question
+function updateScore(isAnswerCorrect){
+    if (isAnswerCorrect){
+        scoreCount += 1;
+    }
+}
+
+function getScoresArrayFromLocalStorage(){
+    var scoresArr = localStorage.getItem("scoresArr")
+    if (scoresArr === null){
+        localStorage.setItem("scoresArr", JSON.stringify([]))
+    }
+
+    return JSON.parse(localStorage.getItem("scoresArr"))
+}
+
+function storeScoreToLocalStorage(score) {
+    var scoresArr = getScoresArrayFromLocalStorage()
+    scoresArr.push(score)
+    localStorage.setItem("scoresArr", JSON.stringify(scoresArr)) 
+}
+
+function storeScore(){
+    var score =  {
+        initials: initialsInputEl.value,
+        score:scoreCount
+    }
+    storeScoreToLocalStorage(score)
+}
+
+submitBtn.addEventListener("click", submitScore)
+
+function submitScore(){
+    storeScore()
+    location.href="./highscores.html"
+   
+}
