@@ -26,17 +26,17 @@ Once all questions are answered the scores are displayed and store.
 
 ## Challenges
 
-* Validating users input choices. 
-* Selecting elements from the different array options.
-* Variable naming
-* Determining which loop to use and where.
+* Determing the data type to use for questions. 
+* saving the users input with scores.
+* Accessing saved records from the local storage.
+* Returning the arrays in a sorted format.
 
 ## Things I learned 
-* How to use the prompts, confirm and alerts
-* Nesting functions
-* The random functions
-* How to declare and use variables globally and locally.
-* How to apply loops in validation
+* How useful it is to break down code using functions
+* Using API's in Vanilla javascript.
+* Havng different javascript files pointing to the same html.
+* Making pages interactive with event listeners.
+* Storing data on the client side using the local storage. 
 
 
 ## Screen Shots
