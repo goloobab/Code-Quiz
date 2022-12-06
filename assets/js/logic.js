@@ -71,3 +71,29 @@ function showEndQuizScreen(){
     endQuizScreen.classList.remove("hide");
     scoreEl.textContent = scoreCount;
 }
+
+function showQuestionAndChoices(questionIndex){
+    var question = getNextQuestion(questionIndex);
+    var choices = question.answerChoices;
+    var answer = question.correctAnswer;
+
+    showQuestion(question)
+    showChoices(choices, answer)
+}
+
+function showQuestion(question) {
+    var questionTitle = document.querySelector("#question-title");
+    questionTitle.textContent = question.title 
+}
+
+function showChoices(choices, answer){
+    var container = document.querySelector(".choices");
+    clearContainer(container)
+    populateChoicesContainer(container, choices, answer)
+}
+
+function clearContainer(container) {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+}
