@@ -4,7 +4,7 @@ const NUM_QUESTIONS = questions.length
 const TRANSITION_DELAY = 500 // msec
 const TIMER_PERIOD = 1000 // msec
 const PENALTY = 10 // sec
-var quizDuration = 30 // sec
+var quizDuration = 60 // sec
 var questionsScreen = document.querySelector("#questions");
 var feedbackEl = document.querySelector("#feedback");
 var startQuizBtn = document.querySelector("#start");
@@ -45,7 +45,6 @@ function startTimer(){
     }, TIMER_PERIOD)
 }
 
-
 function showQuiz(){
     /* After hiding the start screen the first question
     1. unhide the questions element
@@ -59,8 +58,6 @@ function showQuiz(){
 function showQuestionsScreen(){
     questionsScreen.classList.remove("hide");
 }
-
-
 
 // Calls functions that hide the questions and show the end of quiz page
 function stopQuiz(){
