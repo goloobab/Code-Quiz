@@ -13,7 +13,7 @@ var initialsInputEl = document.querySelector("#initials");
 var submitBtn = document.querySelector("#submit");
 var questionsIndex = 0
 
-// When user clicks the start quiz button the start screen hides
+// Call all the functions required to start the quiz
 function startQuiz(){
     hideStartScreen();
     startTimer();
@@ -39,4 +39,35 @@ function startTimer(){
             stopQuiz();
         }
     }, TIMER_PERIOD)
+}
+
+
+function showQuiz(){
+    /* After hiding the start screen the first question
+    1. unhide the questions element
+    2. display question and choices
+    */
+    showQuestionsScreen();
+    showQuestionAndChoices(questionsIndex);
+}
+
+// This fn shows/unhides the questions element
+function showQuestionsScreen(){
+    questionsScreen.classList.remove("hide");
+}
+
+// Calls functions that hide the questions and show the end of quiz page
+function stopQuiz(){
+    hideQuestionsScreen()
+    showEndQuizScreen()
+}
+// Hides the Questions screen
+function hideQuestionsScreen(){
+    questionsScreen.classList.add("hide");
+}
+
+function showEndQuizScreen(){
+    var scoreEl = document.querySelector("#final-score");
+    endQuizScreen.classList.remove("hide");
+    scoreEl.textContent = scoreCount;
 }
