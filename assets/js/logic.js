@@ -13,7 +13,7 @@ var initialsInputEl = document.querySelector("#initials");
 var submitBtn = document.querySelector("#submit");
 var questionsIndex = 0
 var scoreCount = 0
-
+// Declaring variables for the wav audio files
 var correctAudio = new Audio("assets/sfx/correct.wav")
 var incorrectAudio = new Audio("assets/sfx/incorrect.wav")
 
@@ -45,11 +45,12 @@ function startTimer(){
     }, TIMER_PERIOD)
 }
 
-function showQuiz(){
-    /* After hiding the start screen the first question
+ /* After hiding the start screen:
     1. unhide the questions element
     2. display question and choices
     */
+function showQuiz(){
+   
     showQuestionsScreen();
     showQuestionAndChoices(questionsIndex);
 }
@@ -75,6 +76,7 @@ function showEndQuizScreen(){
     scoreEl.textContent = scoreCount;
 }
 
+// This function displays the individual questions and answers.
 function showQuestionAndChoices(questionIndex){
     var question = getNextQuestion(questionIndex);
     var choices = question.answerChoices;
@@ -106,9 +108,9 @@ function clearContainer(container) {
     }
 }
 
-
+// Generating the list of the choices
 function populateChoicesContainer(choicesContainer, choices, answer) {
-    // Generating a list of choices
+    
     for (let i = 0; i < choices.length; i++){
         var choice = choices[i]
         var choiceBtn = createChoiceButtonElement(choice, i, answer)
@@ -116,6 +118,7 @@ function populateChoicesContainer(choicesContainer, choices, answer) {
     }
 }
 
+// Making the choices buttons with events
 function createChoiceButtonElement(choice, index, answer){
     var btn = document.createElement("button");
     btn.setAttribute("value", choice);
