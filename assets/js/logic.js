@@ -64,6 +64,10 @@ function showQuestionsScreen(){
 function stopQuiz(){
     hideQuestionsScreen()
     showEndQuizScreen()
+    // The condition stops the time when the quiz is ended.
+    if (quizDuration > 0) {
+        quizDuration =-1        
+    }
 }
 // Hides the Questions screen
 function hideQuestionsScreen(){
