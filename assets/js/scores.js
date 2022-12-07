@@ -1,7 +1,7 @@
 var scoresContainer = document.querySelector("#highscores")
 var clearBtn = document.querySelector("#clear")
 
-
+// Displaying scores on the high score screen
 showScores()
 
 function showScores(){
@@ -14,11 +14,13 @@ function showScores(){
     }
 }
 
+// Getting saved scores from the local storage and parsing them
 function getScores(){
     var scores = localStorage.getItem("scoresArr")
     return JSON.parse(scores) 
 }
 
+//Clearing the local storage data 
 clearBtn.addEventListener("click", function(){
     localStorage.clear();
     scoresContainer.classList.add("hide");
