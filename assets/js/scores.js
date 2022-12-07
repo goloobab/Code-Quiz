@@ -6,7 +6,9 @@ showScores()
 
 function showScores(){
     scores = getScores()
-
+    //Sorting the scores object array highest to lowest
+    scores.sort((a,b) => (b.score - a.score)); 
+    // appending the scores and initials
     for(let i = 0; i < scores.length; i++){
         var item = document.createElement("li")
         item.textContent = scores[i].initials + " - " + scores[i].score
